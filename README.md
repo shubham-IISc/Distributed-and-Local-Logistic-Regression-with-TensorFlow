@@ -27,8 +27,8 @@ on worker 1 node: python bsp.py --job_name="worker" --task_index=1
 
 SSP(staleness value to be changed in ssp.py code accordingly)
 
-on ps node : python ssp.py --stale=32 --job_name="ps" --task_index=0
+on ps node : python ssp.py  --job_name="ps" --task_index=0
 
-on worker0 node: python ssp.py --stale=32 --job_name="worker" --task_index=0
+on worker0 node: python ssp.py  --job_name="worker" --task_index=0
 
-on worker 1 node: python ssp.py --stale=32 --job_name="worker" --task_index=1
+on worker 1 node: python ssp.py --job_name="worker" --task_index=1
