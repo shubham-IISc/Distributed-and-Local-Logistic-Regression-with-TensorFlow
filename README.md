@@ -1,26 +1,32 @@
 # Distributed-and-Local-Logistic-Regression-with-TensorFlow
 AIM: To implement and evaluate a L2-regularized logistic regression in the standalone and distributed setting using Parameter Server.
-preprocessing.py  
 
-For running local mode : python local_train.py
+To preprocess the dataset, kindly run preprocessing.py that will featurize input documents and output labels.  
 
-For Distributed(Change ip for ps and worker nodes in codes)
+To run in local mode : python local_implementation.py
 
-Bulk Synchronous Parallel mode
+Local implementation results could be seen in the .pynb file uploaded.
+
+For Distributed mode:
+
+ASP
+
+on ps node : python asp.py --job_name="ps" --task_index=0
+
+on worker0 node: python asp.py --job_name="worker" --task_index=0
+
+on worker 1 node: python asp.py --job_name="worker" --task_index=1
+
+BSP
+
 on ps node : python bsp.py --job_name="ps" --task_index=0
 
 on worker0 node: python bsp.py --job_name="worker" --task_index=0
 
 on worker 1 node: python bsp.py --job_name="worker" --task_index=1
 
-Asynchronous Parallel mode
-on ps node : python async.py --job_name="ps" --task_index=0
+SSP(staleness value to be changed in ssp.py code accordingly)
 
-on worker0 node: python async.py --job_name="worker" --task_index=0
-
-on worker 1 node: python async.py --job_name="worker" --task_index=1
-
-Stale Synchronus Parallel mode(change stale value as required)
 on ps node : python ssp.py --stale=32 --job_name="ps" --task_index=0
 
 on worker0 node: python ssp.py --stale=32 --job_name="worker" --task_index=0
